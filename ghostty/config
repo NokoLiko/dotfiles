@@ -1,0 +1,30 @@
+# Config
+
+# ======Basic=============
+font-family = IosevkaTerm Nerd Font
+window-decoration = none
+maximize = true
+theme = TokyoNight Storm
+title = " "
+
+# ======Keybinds=============
+
+# Split Creation
+keybind = ctrl+alt+h=new_split:down
+keybind = ctrl+alt+v=new_split:right
+
+# Split Navigation
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+l=goto_split:right
+keybind = ctrl+k=goto_split:up
+keybind = ctrl+j=goto_split:down
+
+# Split Resizing
+keybind = ctrl+alt+shift+h=resize_split:left,10
+keybind = ctrl+alt+shift+l=resize_split:right,10
+keybind = ctrl+alt+shift+j=resize_split:up,10
+keybind = ctrl+alt+shift+k=resize_split:down,10
+
+# Equalize all splits
+keybind = ctrl+alt+shift+equal=equalize_splits
+
