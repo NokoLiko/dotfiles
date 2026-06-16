@@ -33,10 +33,10 @@ bind "set show-all-if-ambiguous on"
 bind "set mark-symlinked-directories on"
 
 # ALIASES
-. ~/.config/bashrc/.bash_aliases
+. ~/dotfiles/bashrc/.bash_aliases
 
 # BLE
-. ~/.config/bashrc/blesh/ble.sh
+. ~/dotfiles/bashrc/blesh/ble.sh
 
 # PATH
 export PATH="/home/batmiboom/programs/odin:$PATH"

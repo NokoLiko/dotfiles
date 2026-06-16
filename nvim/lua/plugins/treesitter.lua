@@ -1,10 +1,7 @@
 vim.pack.add {
   {
     src = 'https://github.com/romus204/tree-sitter-manager.nvim',
-    branch = 'main',
-    run = function()
-      vim.cmd 'TSUpdate'
-    end,
+    version = 'main',
   },
 }
 
