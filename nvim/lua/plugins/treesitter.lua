@@ -14,6 +14,7 @@ require('tree-sitter-manager').setup {
     'cpp',
     'css',
     'diff',
+    'elixir',
     'gitignore',
     'gleam',
     'go',

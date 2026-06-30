@@ -12,6 +12,7 @@ local ensure_installed = {
   'json-lsp',
   'rust-analyzer',
   'typescript-language-server',
+  'lexical',
   'lua-language-server',
   'markdown-oxide',
   'pyrefly',
@@ -20,6 +21,7 @@ local ensure_installed = {
   'sqlls',
   'taplo',
   'tailwindcss-language-server',
+  'typescript-language-server',
   'yaml-language-server',
   'zls',
   -- FORMATTERS

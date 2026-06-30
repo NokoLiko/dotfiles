@@ -1,5 +1,4 @@
 # GENERAL OPTIONS
-
 set -o noclobber
 shopt -s checkwinsize
 shopt -s globstar 2> /dev/null
@@ -21,31 +20,42 @@ CDPATH="."
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 
 # KEYBIDING
-bind Space:magic-space
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-bind '"\e[C": forward-char'
-bind '"\e[D": backward-char'
+if [[ $- == *i* ]]; then
+  bind Space:magic-space
+  bind '"\e[A": history-search-backward'
+  bind '"\e[B": history-search-forward'
+  bind '"\e[C": forward-char'
+  bind '"\e[D": backward-char'
 
-bind "set completion-ignore-case on"
-bind "set completion-map-case on"
-bind "set show-all-if-ambiguous on"
-bind "set mark-symlinked-directories on"
+  bind "set completion-ignore-case on"
+  bind "set completion-map-case on"
+  bind "set show-all-if-ambiguous on"
+  bind "set mark-symlinked-directories on"
+fi
+
+case "$OSTYPE" in
+  darwin*)
+    [[ -r /opt/homebrew/etc/profile.d/bash_completion.sh ]] && . /opt/homebrew/etc/profile.d/bash_completion.sh
+    ;;
+  linux*)
+    ;;
+esac
 
 # ALIASES
 . ~/dotfiles/bashrc/.bash_aliases
 
-# BLE
-. ~/dotfiles/bashrc/blesh/ble.sh
-
 # PATH
-export PATH="/home/batmiboom/programs/odin:$PATH"
-export PATH="/home/batmiboom/programs/node/bin:$PATH"
-export PATH="/home/batmiboom/programs/flutter/bin:$PATH"
-export PATH="/home/batmiboom/programs/android/bin:$PATH"
-export PATH="/home/batmiboom/.cargo/bin:$PATH"
-export PATH="/home/batmiboom/.local/share/nvim/mason/bin:$PATH"
+. ~/dotfiles/bashrc/.bash_env
+
+# FUNCTIONS
+. ~/dotfiles/bashrc/.bash_functions
+
+# ELIXIR
+if command -v mise &>/dev/null; then
+  eval "$(~/.local/bin/mise activate bash)"
+fi
 
 # BEFORE INIT
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

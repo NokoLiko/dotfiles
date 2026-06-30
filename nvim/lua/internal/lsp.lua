@@ -38,6 +38,7 @@ vim.lsp.enable {
   'ols',
   'pyrefly',
   'rust_analyzer',
+  'svelte',
   'sqlls',
   'taplo',
   'ts_ls',
