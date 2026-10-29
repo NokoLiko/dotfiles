@@ -6,7 +6,7 @@ lint.linters_by_ft = {
 	typescript = { "biomejs" },
 	javascriptreact = { "biomejs" },
 	typescriptreact = { "biomejs" },
-	golang = { "golangcilint" },
+	go = { "golangcilint" },
 	rust = { "clippy" },
 	python = { "ruff" },
 }

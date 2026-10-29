@@ -40,9 +40,9 @@ vim.api.nvim_create_autocmd('FileType', {
 -- Auto-close terminal when process exits
 vim.api.nvim_create_autocmd('TermClose', {
   group = augroup,
-  callback = function()
-    if vim.v.event.status == 0 then
-      vim.api.nvim_buf_delete(0, {})
+  callback = function(args)
+    if vim.v.event.status == 0 and vim.api.nvim_buf_is_valid(args.buf) then
+      vim.api.nvim_buf_delete(args.buf, {})
     end
   end,
 })

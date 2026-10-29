@@ -1,6 +1,6 @@
 vim.pack.add {
   { src = 'https://github.com/neovim/nvim-lspconfig' },
-  { src = 'https://github.com/saghen/blink.cmp', version = 'v1.7.0' },
+  { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '1.*' },
 }
 
 require('blink.cmp').setup {
@@ -38,7 +38,14 @@ require('blink.cmp').setup {
     },
   },
   sources = {
-    default = { 'lsp', 'path', 'buffer' },
+    default = { 'lazydev', 'lsp', 'path', 'buffer' },
+    providers = {
+      lazydev = {
+        name = 'LazyDev',
+        module = 'lazydev.integrations.blink',
+        score_offset = 100,
+      },
+    },
   },
   appearance = {
     highlight_ns = vim.api.nvim_create_namespace 'blink_cmp',
@@ -49,8 +56,4 @@ require('blink.cmp').setup {
     sorts = { 'exact', 'score', 'sort_text' },
   },
   signature = { enabled = true },
-}
-
-vim.lsp.config['*'] = {
-  capabilities = require('blink.cmp').get_lsp_capabilities(),
 }

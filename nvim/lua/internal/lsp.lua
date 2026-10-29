@@ -9,13 +9,7 @@ vim.lsp.config('lua_ls', {
       runtime = {
         version = 'LuaJIT',
       },
-      diagnostics = {
-        globals = { 'vim' },
-      },
       workspace = {
-        library = {
-          vim.env.VIMRUNTIME,
-        },
         checkThirdParty = false,
       },
       telemetry = {
@@ -33,6 +27,7 @@ vim.lsp.enable {
   'gopls',
   'html',
   'jsonls',
+  'lexical',
   'lua_ls',
   'markdown_oxide',
   'ols',
@@ -50,9 +45,15 @@ vim.lsp.enable {
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('LSP', { clear = true }),
   desc = 'Attach some keybidings when a lsp is attached',
-  callback = function()
+  callback = function(args)
     vim.keymap.set('n', 'gd', function()
       vim.lsp.buf.definition()
-    end, { desc = 'Go To Definition' })
+    end, { buffer = args.buf, desc = 'Go To Definition' })
   end,
 })
+
+vim.lsp.inlay_hint.enable()
+
+vim.keymap.set('n', '<leader>i', function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = 'Toggle Inlay Hints' })

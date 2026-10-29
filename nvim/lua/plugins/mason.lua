@@ -19,9 +19,9 @@ local ensure_installed = {
   'ruff',
   'ols',
   'sqlls',
+  'svelte-language-server',
   'taplo',
   'tailwindcss-language-server',
-  'typescript-language-server',
   'yaml-language-server',
   'zls',
   -- FORMATTERS

@@ -5,7 +5,7 @@
 vim.keymap.set('i', 'jk', '<Esc>')
 
 -- Remove highlight
-vim.keymap.set('n', '<Esc>', ':noh<CR>')
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Navigate visual lines
 vim.keymap.set(
